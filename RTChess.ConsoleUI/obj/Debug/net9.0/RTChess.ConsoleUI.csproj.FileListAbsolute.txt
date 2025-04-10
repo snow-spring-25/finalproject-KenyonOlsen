@@ -1,0 +1,5 @@
+C:\Users\Kenyon\my_homework\RTChess\RTChess.ConsoleUI\obj\Debug\net9.0\RTChess.ConsoleUI.csproj.AssemblyReference.cache
+C:\Users\Kenyon\my_homework\RTChess\RTChess.ConsoleUI\obj\Debug\net9.0\RTChess.ConsoleUI.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Kenyon\my_homework\RTChess\RTChess.ConsoleUI\obj\Debug\net9.0\RTChess.ConsoleUI.AssemblyInfoInputs.cache
+C:\Users\Kenyon\my_homework\RTChess\RTChess.ConsoleUI\obj\Debug\net9.0\RTChess.ConsoleUI.AssemblyInfo.cs
+C:\Users\Kenyon\my_homework\RTChess\RTChess.ConsoleUI\obj\Debug\net9.0\RTChess.ConsoleUI.csproj.CoreCompileInputs.cache

@@ -1,0 +1,15 @@
+C:\Users\Kenyon\my_homework\RTChess\RTChess.Logic\obj\Debug\net9.0\RTChess.Logic.csproj.AssemblyReference.cache
+C:\Users\Kenyon\my_homework\RTChess\RTChess.Logic\obj\Debug\net9.0\RTChess.Logic.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Kenyon\my_homework\RTChess\RTChess.Logic\obj\Debug\net9.0\RTChess.Logic.AssemblyInfoInputs.cache
+C:\Users\Kenyon\my_homework\RTChess\RTChess.Logic\obj\Debug\net9.0\RTChess.Logic.AssemblyInfo.cs
+C:\Users\Kenyon\my_homework\RTChess\RTChess.Logic\obj\Debug\net9.0\RTChess.Logic.csproj.CoreCompileInputs.cache
+C:\Users\Kenyon\my_homework\RTChess\RTChess.Logic\bin\Debug\net9.0\RTChess.Logic.deps.json
+C:\Users\Kenyon\my_homework\RTChess\RTChess.Logic\bin\Debug\net9.0\RTChess.Logic.dll
+C:\Users\Kenyon\my_homework\RTChess\RTChess.Logic\bin\Debug\net9.0\RTChess.Logic.pdb
+C:\Users\Kenyon\my_homework\RTChess\RTChess.Logic\bin\Debug\net9.0\RTChess.Persistence.dll
+C:\Users\Kenyon\my_homework\RTChess\RTChess.Logic\bin\Debug\net9.0\RTChess.Persistence.pdb
+C:\Users\Kenyon\my_homework\RTChess\RTChess.Logic\obj\Debug\net9.0\RTChess..8FDE4292.Up2Date
+C:\Users\Kenyon\my_homework\RTChess\RTChess.Logic\obj\Debug\net9.0\RTChess.Logic.dll
+C:\Users\Kenyon\my_homework\RTChess\RTChess.Logic\obj\Debug\net9.0\refint\RTChess.Logic.dll
+C:\Users\Kenyon\my_homework\RTChess\RTChess.Logic\obj\Debug\net9.0\RTChess.Logic.pdb
+C:\Users\Kenyon\my_homework\RTChess\RTChess.Logic\obj\Debug\net9.0\ref\RTChess.Logic.dll
