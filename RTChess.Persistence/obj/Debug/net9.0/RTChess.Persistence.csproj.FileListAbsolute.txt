@@ -9,3 +9,15 @@ C:\Users\Kenyon\my_homework\RTChess\RTChess.Persistence\obj\Debug\net9.0\RTChess
 C:\Users\Kenyon\my_homework\RTChess\RTChess.Persistence\obj\Debug\net9.0\refint\RTChess.Persistence.dll
 C:\Users\Kenyon\my_homework\RTChess\RTChess.Persistence\obj\Debug\net9.0\RTChess.Persistence.pdb
 C:\Users\Kenyon\my_homework\RTChess\RTChess.Persistence\obj\Debug\net9.0\ref\RTChess.Persistence.dll
+C:\Users\kenyon.olsen\my-code-dir\RTChess\finalproject-KenyonOlsen\RTChess.Persistence\bin\Debug\net9.0\RTChess.Persistence.deps.json
+C:\Users\kenyon.olsen\my-code-dir\RTChess\finalproject-KenyonOlsen\RTChess.Persistence\bin\Debug\net9.0\RTChess.Persistence.dll
+C:\Users\kenyon.olsen\my-code-dir\RTChess\finalproject-KenyonOlsen\RTChess.Persistence\bin\Debug\net9.0\RTChess.Persistence.pdb
+C:\Users\kenyon.olsen\my-code-dir\RTChess\finalproject-KenyonOlsen\RTChess.Persistence\obj\Debug\net9.0\RTChess.Persistence.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\kenyon.olsen\my-code-dir\RTChess\finalproject-KenyonOlsen\RTChess.Persistence\obj\Debug\net9.0\RTChess.Persistence.AssemblyInfoInputs.cache
+C:\Users\kenyon.olsen\my-code-dir\RTChess\finalproject-KenyonOlsen\RTChess.Persistence\obj\Debug\net9.0\RTChess.Persistence.AssemblyInfo.cs
+C:\Users\kenyon.olsen\my-code-dir\RTChess\finalproject-KenyonOlsen\RTChess.Persistence\obj\Debug\net9.0\RTChess.Persistence.csproj.CoreCompileInputs.cache
+C:\Users\kenyon.olsen\my-code-dir\RTChess\finalproject-KenyonOlsen\RTChess.Persistence\obj\Debug\net9.0\RTChess.Persistence.sourcelink.json
+C:\Users\kenyon.olsen\my-code-dir\RTChess\finalproject-KenyonOlsen\RTChess.Persistence\obj\Debug\net9.0\RTChess.Persistence.dll
+C:\Users\kenyon.olsen\my-code-dir\RTChess\finalproject-KenyonOlsen\RTChess.Persistence\obj\Debug\net9.0\refint\RTChess.Persistence.dll
+C:\Users\kenyon.olsen\my-code-dir\RTChess\finalproject-KenyonOlsen\RTChess.Persistence\obj\Debug\net9.0\RTChess.Persistence.pdb
+C:\Users\kenyon.olsen\my-code-dir\RTChess\finalproject-KenyonOlsen\RTChess.Persistence\obj\Debug\net9.0\ref\RTChess.Persistence.dll

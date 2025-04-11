@@ -8,9 +8,10 @@ public class IPiece
     public int Cooldown { get; set; }
     //public dateTime LastMoved { get; set; }
 
-    public IPiece(bool color)
+    public IPiece(bool color, char display)
     {
         Color = color;
+        Display = display;
     }
 
     void Move()
