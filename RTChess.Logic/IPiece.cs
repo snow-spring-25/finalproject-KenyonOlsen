@@ -13,6 +13,10 @@ public class IPiece
         Color = color;
         Display = display;
     }
+    public IPiece(bool color)
+    {
+        Color = color;
+    }
 
     void Move()
     {

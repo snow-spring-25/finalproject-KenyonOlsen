@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("RTChess.Logic")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8bd6aee488936856c509931a3c83c05695a17a3b")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+63b7d06f47da9674dee82984bab08a327344efc9")]
 [assembly: System.Reflection.AssemblyProductAttribute("RTChess.Logic")]
 [assembly: System.Reflection.AssemblyTitleAttribute("RTChess.Logic")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

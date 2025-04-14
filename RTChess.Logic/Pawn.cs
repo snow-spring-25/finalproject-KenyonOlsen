@@ -2,9 +2,17 @@ namespace RTChess.Logic;
 
 public class Pawn : IPiece
 {
-    char Display = 'P';
-    public Pawn(bool color) : base(color, '♙')
+    int preDisplay = (int)'♙';
+    public Pawn(bool color) : base(color)
     {
-
+        if (color)
+        {
+            preDisplay += 6;
+            this.Display = (char)preDisplay;
+        }
+        else
+        {
+            this.Display = (char)preDisplay;
+        }
     }
 }

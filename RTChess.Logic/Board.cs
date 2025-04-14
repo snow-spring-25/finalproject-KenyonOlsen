@@ -21,9 +21,18 @@ public class Board
     public IPiece BBishop2 = new Bishop(false);
     public IPiece BKing = new King(false);
     public IPiece BQueen = new Queen(false);
+    public IPiece Null = null;
     public IPiece[] GameStart()
     {
-        IPiece[] GameBoard = { WRook1, WKnight1, WBishop1, WKing, WQueen, WBishop2, WKnight2, WRook2, BRook1, BKnight1, BBishop1, BKing, BQueen, BBishop2, BKnight2, BRook2 };
+        IPiece[] nullRow = { Null, Null, Null, Null, Null, Null, Null, Null };
+        IPiece[] GameBoard = { WRook1, WKnight1, WBishop1, WKing, WQueen, WBishop2, WKnight2, WRook2,
+        null, null, null, null, null, null, null, null,
+        null, null, null, null, null, null, null, null,
+        null, null, null, null, null, null, null, null,
+        null, null, null, null, null, null, null, null,
+        null, null, null, null, null, null, null, null,
+        null, null, null, null, null, null, null, null,
+        BRook1, BKnight1, BBishop1, BKing, BQueen, BBishop2, BKnight2, BRook2 };
         return GameBoard;
     }
 }
