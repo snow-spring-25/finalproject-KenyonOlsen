@@ -1,0 +1,56 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v9.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v9.0": {
+      "RTChess.WebUI/1.0.0": {
+        "dependencies": {
+          "RTChess.Logic": "1.0.0",
+          "RTChess.Persistence": "1.0.0"
+        },
+        "runtime": {
+          "RTChess.WebUI.dll": {}
+        }
+      },
+      "RTChess.Logic/1.0.0": {
+        "dependencies": {
+          "RTChess.Persistence": "1.0.0"
+        },
+        "runtime": {
+          "RTChess.Logic.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "RTChess.Persistence/1.0.0": {
+        "runtime": {
+          "RTChess.Persistence.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "RTChess.WebUI/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "RTChess.Logic/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "RTChess.Persistence/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

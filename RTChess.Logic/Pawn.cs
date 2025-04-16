@@ -3,7 +3,7 @@ namespace RTChess.Logic;
 public class Pawn : IPiece
 {
     int preDisplay = (int)'♙';
-    public Pawn(bool color) : base(color)
+    public Pawn(bool color, int Position) : base(color, Position)
     {
         if (color)
         {

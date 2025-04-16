@@ -6,7 +6,13 @@ public class IPiece
     public char Display { get; set; }
     public bool Dead { get; set; }
     public int Cooldown { get; set; }
+    public int Position { get; set; }
 
+    public IPiece(bool color, int position)
+    {
+        Color = color;
+        Position = position;
+    }
     public IPiece(bool color, char display)
     {
         Color = color;
@@ -17,8 +23,14 @@ public class IPiece
         Color = color;
     }
 
-    void Move()
-    {
+    virtual public void Move()
+    { 
 
     }
+
+    //     Board.Move(true, 0, this.Position, true, true);
+    //     Board.Move(true, 1, this.Position, true, true);
+    //     Board.Move(true, 2, this.Position, true, true);
+    //     Board.Move(true, 3, this.Position, true, true);
+
 }

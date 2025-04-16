@@ -1,37 +1,90 @@
 {
   "version": 3,
   "targets": {
-    "net9.0": {}
+    "net9.0": {
+      "RTChess.Logic/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v9.0",
+        "dependencies": {
+          "RTChess.Persistence": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/RTChess.Logic.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/RTChess.Logic.dll": {}
+        }
+      },
+      "RTChess.Persistence/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v9.0",
+        "compile": {
+          "bin/placeholder/RTChess.Persistence.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/RTChess.Persistence.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "RTChess.Logic/1.0.0": {
+      "type": "project",
+      "path": "../RTChess.Logic/RTChess.Logic.csproj",
+      "msbuildProject": "../RTChess.Logic/RTChess.Logic.csproj"
+    },
+    "RTChess.Persistence/1.0.0": {
+      "type": "project",
+      "path": "../RTChess.Persistence/RTChess.Persistence.csproj",
+      "msbuildProject": "../RTChess.Persistence/RTChess.Persistence.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    "net9.0": []
+    "net9.0": [
+      "RTChess.Logic >= 1.0.0",
+      "RTChess.Persistence >= 1.0.0"
+    ]
   },
   "packageFolders": {
-    "C:\\Users\\Kenyon\\.nuget\\packages\\": {}
+    "C:\\Users\\kenyon.olsen\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Kenyon\\my_homework\\RTChess\\RTChess.WebUI\\RTChess.WebUI.csproj",
+      "projectUniqueName": "C:\\Users\\kenyon.olsen\\my-code-dir\\RTChess\\finalproject-KenyonOlsen\\RTChess.WebUI\\RTChess.WebUI.csproj",
       "projectName": "RTChess.WebUI",
-      "projectPath": "C:\\Users\\Kenyon\\my_homework\\RTChess\\RTChess.WebUI\\RTChess.WebUI.csproj",
-      "packagesPath": "C:\\Users\\Kenyon\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Kenyon\\my_homework\\RTChess\\RTChess.WebUI\\obj\\",
+      "projectPath": "C:\\Users\\kenyon.olsen\\my-code-dir\\RTChess\\finalproject-KenyonOlsen\\RTChess.WebUI\\RTChess.WebUI.csproj",
+      "packagesPath": "C:\\Users\\kenyon.olsen\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\kenyon.olsen\\my-code-dir\\RTChess\\finalproject-KenyonOlsen\\RTChess.WebUI\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\Kenyon\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\kenyon.olsen\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net9.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net9.0": {
           "targetAlias": "net9.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\kenyon.olsen\\my-code-dir\\RTChess\\finalproject-KenyonOlsen\\RTChess.Logic\\RTChess.Logic.csproj": {
+              "projectPath": "C:\\Users\\kenyon.olsen\\my-code-dir\\RTChess\\finalproject-KenyonOlsen\\RTChess.Logic\\RTChess.Logic.csproj"
+            },
+            "C:\\Users\\kenyon.olsen\\my-code-dir\\RTChess\\finalproject-KenyonOlsen\\RTChess.Persistence\\RTChess.Persistence.csproj": {
+              "projectPath": "C:\\Users\\kenyon.olsen\\my-code-dir\\RTChess\\finalproject-KenyonOlsen\\RTChess.Persistence\\RTChess.Persistence.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
@@ -44,7 +97,7 @@
         "auditLevel": "low",
         "auditMode": "direct"
       },
-      "SdkAnalysisLevel": "9.0.100"
+      "SdkAnalysisLevel": "9.0.200"
     },
     "frameworks": {
       "net9.0": {
@@ -68,7 +121,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.102/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.200/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

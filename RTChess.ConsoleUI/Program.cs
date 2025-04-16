@@ -2,14 +2,13 @@
 using RTChess.Logic;
 //Board board = new Board();
 //IPiece[] GameBoard = Board.GameStart();
-Console.WriteLine();
-Console.WriteLine();
-Board.Move(true, 0, 20);
-Board.Move(true, 1, 20);
-Board.Move(true, 2, 20);
-Board.Move(true, 3, 20);
+
+
 void RefreshBoard()
 {
+    Board.GameBoard[2].Move();
+    Console.WriteLine();
+    Console.WriteLine();
     for (int i = 0; i < 8; i++)
     {
         for (int j = 0; j < 8; j++)
