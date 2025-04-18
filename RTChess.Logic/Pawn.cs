@@ -15,4 +15,9 @@ public class Pawn : IPiece
             this.Display = (char)preDisplay;
         }
     }
+
+    override public void Move()
+    {
+
+    }
 }

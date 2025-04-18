@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("RTChess.ConsoleUI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f07facebf4822c1f36fcc64338e5c3f34fd1fa83")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6e0e138d77e5654f9ff861c3f4cd7237d41dd643")]
 [assembly: System.Reflection.AssemblyProductAttribute("RTChess.ConsoleUI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("RTChess.ConsoleUI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

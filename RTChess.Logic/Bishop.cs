@@ -19,9 +19,9 @@ public class Bishop : IPiece
 
     override public void Move()
     {
-        Board.Move(true, 4, this.Position, true, true);
-        Board.Move(true, 5, this.Position, true, true);
-        Board.Move(true, 6, this.Position, true, true);
-        Board.Move(true, 7, this.Position, true, true);
+        Board.Move(this.Color, 4, this.Position, true, true);
+        Board.Move(this.Color, 5, this.Position, true, true);
+        Board.Move(this.Color, 6, this.Position, true, true);
+        Board.Move(this.Color, 7, this.Position, true, true);
     }
 }

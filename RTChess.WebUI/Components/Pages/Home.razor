@@ -1,6 +1,33 @@
 ﻿@page "/"
-<img src="ChessBoard.png"/>
+
 <PageTitle>Home</PageTitle>
 
-<h1>Hello, world!</h1>
+<table>
+    @for (int i = 0; i < 8; i++)
+    {
+        <tr>
+            @for (int j = 0; j < 8; j++)
+            {
+                bool isOdd = (i + j) % 2 == 0;
+                string background = isOdd ? "background-color: rgba(0,0,0,0.5);" : "";
+                var piece = Board.GameBoard[i * 8 + j];
+                <td style=@($"{background}height: 30px; width: 30px;Alignment.Center")>
+                    @if (piece != null)
+                    {
+                        <div @onclick=@(() => MovePiece(piece))>
+                            @Board.GameBoard[i * 8 + j]?.Display
+                        </div>
+                    }
+                </td>
+            }
+        </tr>
+    }
+</table>
 
+@code
+{
+    void MovePiece(IPiece piece)
+    {
+        piece.Move();
+    }
+}

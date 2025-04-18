@@ -3,7 +3,7 @@ using RTChess.Logic;
 
 void RefreshBoard()
 {
-    Board.GameBoard[2].Move();
+    Board.GameBoard[0].Move();
     Console.WriteLine();
     Console.WriteLine();
     for (int i = 0; i < 8; i++)

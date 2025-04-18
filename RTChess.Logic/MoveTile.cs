@@ -79,7 +79,12 @@ public class MoveTile : IPiece
             {
                 Board.Move(color, Direction, Location + Offset, Extend);
             }
+            /*else if (Extend && Board.GameBoard[Location + Offset] == Board.GameBoard[Location + Offset].Color!=this.Color && (!Row || Location % 8 != 7 && Location % 8 != 0))
+            {
+                Board.Move(color, Direction, Location + Offset, false);
+            }*/
         }
+        
     }
     public MoveTile(bool color, int Direction, int Location, bool Extend, bool Initial) : this(color, Direction, Location, Extend)
     {

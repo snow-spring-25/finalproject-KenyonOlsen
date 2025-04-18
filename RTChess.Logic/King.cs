@@ -18,13 +18,13 @@ public class King : IPiece
 
     override public void Move()
     {
-        Board.Move(true, 0, this.Position, false, true);
-        Board.Move(true, 1, this.Position, false, true);
-        Board.Move(true, 2, this.Position, false, true);
-        Board.Move(true, 3, this.Position, false, true);
-        Board.Move(true, 4, this.Position, false, true);
-        Board.Move(true, 5, this.Position, false, true);
-        Board.Move(true, 6, this.Position, false, true);
-        Board.Move(true, 7, this.Position, false, true);
+        Board.Move(this.Color, 0, this.Position, false, true);
+        Board.Move(this.Color, 1, this.Position, false, true);
+        Board.Move(this.Color, 2, this.Position, false, true);
+        Board.Move(this.Color, 3, this.Position, false, true);
+        Board.Move(this.Color, 4, this.Position, false, true);
+        Board.Move(this.Color, 5, this.Position, false, true);
+        Board.Move(this.Color, 6, this.Position, false, true);
+        Board.Move(this.Color, 7, this.Position, false, true);
     }
 }

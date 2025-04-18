@@ -21,15 +21,44 @@ public class Board
     public static IPiece BBishop2 = new Bishop(false, 61);
     public static IPiece BKing = new King(false, 59);
     public static IPiece BQueen = new Queen(false, 60);
+
+    public static IPiece WPawn1 = new Pawn(true, 8);
+    public static IPiece WPawn2 = new Pawn(true, 9);
+    public static IPiece WPawn3 = new Pawn(true, 10);
+    public static IPiece WPawn4 = new Pawn(true, 11);
+    public static IPiece WPawn5 = new Pawn(true, 12);
+    public static IPiece WPawn6 = new Pawn(true, 13);
+    public static IPiece WPawn7 = new Pawn(true, 14);
+    public static IPiece WPawn8 = new Pawn(true, 15);
+    public static IPiece BPawn1 = new Pawn(false, 48);
+    public static IPiece BPawn2 = new Pawn(false, 49);
+    public static IPiece BPawn3 = new Pawn(false, 50);
+    public static IPiece BPawn4 = new Pawn(false, 51);
+    public static IPiece BPawn5 = new Pawn(false, 52);
+    public static IPiece BPawn6 = new Pawn(false, 53);
+    public static IPiece BPawn7 = new Pawn(false, 54);
+    public static IPiece BPawn8 = new Pawn(false, 55);
     public static IPiece Null = null;
+    
+    /*public static IPiece?[] GameBoard =  { WRook1, WKnight1, WBishop1, WKing, WQueen, WBishop2, WKnight2, WRook2,
+        WPawn1, WPawn2, WPawn3, WPawn4, WPawn5, WPawn6, WPawn7, WPawn8,
+        null, null, null, null, null, null, null, null ,
+        null, null, null, null, null, null, null, null ,
+        null, null, null, null, null, null, null, null ,
+        null, null, null, null, null, null, null, null ,
+        BPawn1, BPawn2, BPawn3, BPawn4, BPawn5, BPawn6, BPawn7, BPawn8,
+        BRook1, BKnight1, BBishop1, BKing, BQueen, BBishop2, BKnight2, BRook2 };
+        */
+
     public static IPiece?[] GameBoard =  { WRook1, WKnight1, WBishop1, WKing, WQueen, WBishop2, WKnight2, WRook2,
-        null, null, null, null, null, null, null, null,
+        null, null, null, null, null, null, null, null ,
         null, null, null, null, null, null, null, null ,
         null, null, null, null, null, null, null, null ,
         null, null, null, null, null, null, null, null ,
         null, null, null, null, null, null, null, null ,
         null, null, null, null, null, null, null, null ,
         BRook1, BKnight1, BBishop1, BKing, BQueen, BBishop2, BKnight2, BRook2 };
+
 
     public static void Move(bool color, int Direction, int Location, bool Extend)
     {
