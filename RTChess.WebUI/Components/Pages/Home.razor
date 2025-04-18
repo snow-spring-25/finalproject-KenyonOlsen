@@ -11,7 +11,7 @@
                 bool isOdd = (i + j) % 2 == 0;
                 string background = isOdd ? "background-color: rgba(0,0,0,0.5);" : "";
                 var piece = Board.GameBoard[i * 8 + j];
-                <td style=@($"{background}height: 30px; width: 30px;Alignment.Center")>
+                <td style=@($"{background}height: 30px; width: 30px; text-align: center;")>
                     @if (piece != null)
                     {
                         <div @onclick=@(() => MovePiece(piece))>
@@ -28,6 +28,7 @@
 {
     void MovePiece(IPiece piece)
     {
+        Board.RemoveMoves();
         piece.Move();
     }
 }

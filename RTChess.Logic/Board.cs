@@ -5,6 +5,7 @@ public class Board
     public Board()
     {
     }
+    public static List<MoveTile> MoveTiles = new List<MoveTile>();
     public static IPiece WRook1 = new Rook(true, 0);
     public static IPiece WRook2 = new Rook(true, 7);
     public static IPiece WKnight1 = new Knight(true, 1);
@@ -39,7 +40,7 @@ public class Board
     public static IPiece BPawn7 = new Pawn(false, 54);
     public static IPiece BPawn8 = new Pawn(false, 55);
     public static IPiece Null = null;
-    
+
     /*public static IPiece?[] GameBoard =  { WRook1, WKnight1, WBishop1, WKing, WQueen, WBishop2, WKnight2, WRook2,
         WPawn1, WPawn2, WPawn3, WPawn4, WPawn5, WPawn6, WPawn7, WPawn8,
         null, null, null, null, null, null, null, null ,
@@ -60,16 +61,33 @@ public class Board
         BRook1, BKnight1, BBishop1, BKing, BQueen, BBishop2, BKnight2, BRook2 };
 
 
-    public static void Move(bool color, int Direction, int Location, bool Extend)
+    public static void Move(IPiece creator, bool color, int Direction, int Location, bool Extend)
     {
-        MoveTile m = new MoveTile(color, Direction, Location, Extend);
+        MoveTile m = new MoveTile(creator, color, Direction, Location, Extend);
 
         GameBoard[Location] = m;
+        MoveTiles.Add(m);
     }
 
-    public static void Move(bool color, int Direction, int Location, bool Extend, bool Initial)
+    public static void Move(IPiece creator, bool color, int Direction, int Location, bool Extend, bool Initial)
     {
-        MoveTile m = new MoveTile(color, Direction, Location, Extend, Initial);
+        MoveTile m = new MoveTile(creator, color, Direction, Location, Extend, Initial);
+        //MoveTiles.Add(m);
+    }
+
+    public static void RemoveMoves()
+    {
+        foreach (MoveTile tile in MoveTiles)
+        {
+            GameBoard[tile.Position] = null;
+            
+        }
+
+        for(int i = 0; i < MoveTiles.Count();i++)
+        {
+            MoveTiles[0] = null;
+            MoveTiles.RemoveAt(0);
+        }
     }
 }
 

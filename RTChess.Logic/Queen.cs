@@ -18,13 +18,13 @@ public class Queen : IPiece
 
     override public void Move()
     {
-        Board.Move(this.Color, 0, this.Position, true, true);
-        Board.Move(this.Color, 1, this.Position, true, true);
-        Board.Move(this.Color, 2, this.Position, true, true);
-        Board.Move(this.Color, 3, this.Position, true, true);
-        Board.Move(this.Color, 4, this.Position, true, true);
-        Board.Move(this.Color, 5, this.Position, true, true);
-        Board.Move(this.Color, 6, this.Position, true, true);
-        Board.Move(this.Color, 7, this.Position, true, true);
+        Board.Move(this, this.Color, 0, this.Position, true, true);
+        Board.Move(this, this.Color, 1, this.Position, true, true);
+        Board.Move(this, this.Color, 2, this.Position, true, true);
+        Board.Move(this, this.Color, 3, this.Position, true, true);
+        Board.Move(this, this.Color, 4, this.Position, true, true);
+        Board.Move(this, this.Color, 5, this.Position, true, true);
+        Board.Move(this, this.Color, 6, this.Position, true, true);
+        Board.Move(this, this.Color, 7, this.Position, true, true);
     }
 }

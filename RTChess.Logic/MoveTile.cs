@@ -4,11 +4,14 @@ public class MoveTile : IPiece
 {
     public int Offset { get; set; }
     public bool Row { get; set; }
+    public IPiece Creator { get; set; }
 
-    public MoveTile(bool color, int Direction, int Location, bool Extend) : base(color)
+    public MoveTile(IPiece creator, bool color, int direction, int location, bool extend) : base(color)
     {
+        Creator = creator;
+        this.Position = location;
         this.Display = 't';
-        switch (Direction)
+        switch (direction)
         {
             case 0://Rook
                 Offset = 8;
@@ -73,28 +76,34 @@ public class MoveTile : IPiece
                 Row = true;
                 break;
         }
-        if (Location < 64 - Offset && Location > 0 - Offset)
+        if (location < 64 - Offset && location > 0 - Offset)
         {
-            if (Extend && Board.GameBoard[Location + Offset] == null && (!Row || Location % 8 != 7 && Location % 8 != 0))
+            if (extend && Board.GameBoard[location + Offset] == null && (!Row || location % 8 != 7 && location % 8 != 0))
             {
-                Board.Move(color, Direction, Location + Offset, Extend);
+                Board.Move(creator, color, direction, location + Offset, extend);
             }
             /*else if (Extend && Board.GameBoard[Location + Offset] == Board.GameBoard[Location + Offset].Color!=this.Color && (!Row || Location % 8 != 7 && Location % 8 != 0))
             {
                 Board.Move(color, Direction, Location + Offset, false);
             }*/
         }
-        
+
     }
-    public MoveTile(bool color, int Direction, int Location, bool Extend, bool Initial) : this(color, Direction, Location, Extend)
+    public MoveTile(IPiece creator, bool color, int Direction, int Location, bool Extend, bool Initial) : this(creator, color, Direction, Location, Extend)
     {
         if (Location < 64 - Offset && Location > 0 - Offset)
         {
             if (!Extend && Board.GameBoard[Location + Offset] == null && (!Row || Location % 8 != 7 && Location % 8 != 0))
             {
-                Board.Move(color, Direction, Location + Offset, false);
+                Board.Move(creator, color, Direction, Location + Offset, false);
             }
         }
     }
 
+    override public void Move()
+    {
+        Board.GameBoard[Creator.Position] = null;
+        Board.GameBoard[this.Position] = Creator;
+        Creator.Position=this.Position;
+    }
 }

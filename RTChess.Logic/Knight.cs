@@ -19,13 +19,13 @@ public class Knight : IPiece
     override public void Move()
     {
         //Can go across the board when overflowing a row
-        Board.Move(this.Color, 8, this.Position, false, true);
-        Board.Move(this.Color, 9, this.Position, false, true);
-        Board.Move(this.Color, 10, this.Position, false, true);
-        Board.Move(this.Color, 11, this.Position, false, true);
-        Board.Move(this.Color, 12, this.Position, false, true);
-        Board.Move(this.Color, 13, this.Position, false, true);
-        Board.Move(this.Color, 14, this.Position, false, true);
-        Board.Move(this.Color, 15, this.Position, false, true);
+        Board.Move(this, this.Color, 8, this.Position, false, true);
+        Board.Move(this, this.Color, 9, this.Position, false, true);
+        Board.Move(this, this.Color, 10, this.Position, false, true);
+        Board.Move(this, this.Color, 11, this.Position, false, true);
+        Board.Move(this, this.Color, 12, this.Position, false, true);
+        Board.Move(this, this.Color, 13, this.Position, false, true);
+        Board.Move(this, this.Color, 14, this.Position, false, true);
+        Board.Move(this, this.Color, 15, this.Position, false, true);
     }
 }

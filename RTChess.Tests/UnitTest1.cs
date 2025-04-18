@@ -13,4 +13,16 @@ public class UnitTest1
     {
         Assert.True(Board.WBishop1 != null && Board.WBishop2 != null && Board.BBishop1 != null && Board.BBishop2 != null);
     }
+
+    [Fact]
+    public void PositionMatches()
+    {
+        for (int i = 0; i < 64; i++)
+        {
+            if (Board.GameBoard[i] != null)
+            {
+                Assert.True(Board.GameBoard[i].Position == i);
+            }
+        }
+    }
 }
