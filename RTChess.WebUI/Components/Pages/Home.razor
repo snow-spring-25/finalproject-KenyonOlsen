@@ -28,7 +28,10 @@
 {
     void MovePiece(IPiece piece)
     {
-        Board.RemoveMoves();
+        if (piece is not MoveTile)
+        {
+            Board.RemoveMoves();
+        }
         piece.Move();
     }
 }

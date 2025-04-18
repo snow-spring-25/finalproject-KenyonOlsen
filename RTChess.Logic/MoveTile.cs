@@ -6,10 +6,9 @@ public class MoveTile : IPiece
     public bool Row { get; set; }
     public IPiece Creator { get; set; }
 
-    public MoveTile(IPiece creator, bool color, int direction, int location, bool extend) : base(color)
+    public MoveTile(IPiece creator, bool color, int direction, int location, bool extend) : base(color, location)
     {
         Creator = creator;
-        this.Position = location;
         this.Display = 't';
         switch (direction)
         {

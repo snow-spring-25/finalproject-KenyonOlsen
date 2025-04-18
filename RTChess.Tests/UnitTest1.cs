@@ -25,4 +25,30 @@ public class UnitTest1
             }
         }
     }
+
+    [Fact]
+    public void MoveTilePositionMatchesPreMove()
+    {
+        Board.GameBoard[0].Move();
+        for (int i = 0; i < 64; i++)
+        {
+            if (Board.GameBoard[i] != null)
+            {
+                Assert.True(Board.GameBoard[i].Position == i);
+            }
+        }
+    }
+
+    [Fact]
+    public void MoveTilePositionMatchesPostMove()
+    {
+        Board.GameBoard[8].Move();
+        for (int i = 0; i < 64; i++)
+        {
+            if (Board.GameBoard[i] != null)
+            {
+                Assert.True(Board.GameBoard[i].Position == i);
+            }
+        }
+    }
 }
