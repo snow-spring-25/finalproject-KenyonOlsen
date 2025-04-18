@@ -1,8 +1,5 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using RTChess.Logic;
-//Board board = new Board();
-//IPiece[] GameBoard = Board.GameStart();
-
 
 void RefreshBoard()
 {
