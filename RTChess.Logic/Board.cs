@@ -62,26 +62,24 @@ public class Board
 
     public static void Move(IPiece creator, bool color, int Direction, int Location, bool Extend)
     {
-        MoveTile m = new MoveTile(creator, color, Direction, Location, Extend);
+        MoveTile m = new MoveTile(creator, color, Direction, Location, Extend, false);
 
         GameBoard[Location] = m;
-        if (m is MoveTile)
-        {
-            MoveTiles.Add(m);
-        }
+        MoveTiles.Add(m);
 
     }
 
     public static void Move(IPiece creator, bool color, int Direction, int Location, bool Extend, bool Initial)
     {
         MoveTile m = new MoveTile(creator, color, Direction, Location, Extend, Initial);
-        MoveTiles.Add(m);
+        //MoveTiles.Add(m);
     }
 
     public static void RemoveMoves()
     {
         foreach (MoveTile tile in MoveTiles)
         {
+            Console.WriteLine(GameBoard[tile.Position]);
             GameBoard[tile.Position] = null;
         }
 

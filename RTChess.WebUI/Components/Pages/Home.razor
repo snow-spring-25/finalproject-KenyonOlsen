@@ -8,9 +8,12 @@
         <tr>
             @for (int j = 0; j < 8; j++)
             {
+                IPiece piece = Board.GameBoard[i * 8 + j];
+                bool isOnCooldown = (piece != null && piece.OnCooldown);
                 bool isOdd = (i + j) % 2 == 0;
                 string background = isOdd ? "background-color: rgba(0,0,0,0.5);" : "";
-                var piece = Board.GameBoard[i * 8 + j];
+                background = isOnCooldown ? "background-color: rgba(255,0,0,0.1);" : background;
+                
                 <td style=@($"{background}height: 30px; width: 30px; text-align: center;")>
                     @if (piece != null)
                     {

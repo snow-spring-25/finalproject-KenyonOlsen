@@ -18,6 +18,9 @@ public class Pawn : IPiece
 
     override public void Move()
     {
+        if (DateTime.Now > this.LastMoved.AddSeconds(CooldownSeconds))
+        {
 
+        }
     }
 }

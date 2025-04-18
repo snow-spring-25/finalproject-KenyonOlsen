@@ -29,26 +29,39 @@ public class UnitTest1
     [Fact]
     public void MoveTilePositionMatchesPreMove()
     {
-        Board.GameBoard[0].Move();
+        bool flag = true;
+        Board.GameBoard[7].Move();
         for (int i = 0; i < 64; i++)
         {
             if (Board.GameBoard[i] != null)
             {
-                Assert.True(Board.GameBoard[i].Position == i);
+                if(Board.GameBoard[i].Position != i)
+                {
+                    flag=false;
+                }
             }
         }
+        Assert.True(flag);
     }
 
     [Fact]
     public void MoveTilePositionMatchesPostMove()
     {
+        bool flag = true;
+        Board.GameBoard[0].Move();
         Board.GameBoard[8].Move();
+        Board.GameBoard[8].Move();
+        Board.GameBoard[16].Move();
         for (int i = 0; i < 64; i++)
         {
             if (Board.GameBoard[i] != null)
             {
-                Assert.True(Board.GameBoard[i].Position == i);
+                if(Board.GameBoard[i].Position != i)
+                {
+                    flag=false;
+                }
             }
         }
+        Assert.True(flag);
     }
 }

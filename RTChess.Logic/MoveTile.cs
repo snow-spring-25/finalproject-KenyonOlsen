@@ -6,8 +6,9 @@ public class MoveTile : IPiece
     public bool Row { get; set; }
     public IPiece Creator { get; set; }
 
-    public MoveTile(IPiece creator, bool color, int direction, int location, bool extend) : base(color, location)
+    public MoveTile(IPiece creator, bool color, int direction, int location, bool extend, bool initial) : base(color, location)
     {
+
         Creator = creator;
         this.Display = 't';
         switch (direction)
@@ -44,42 +45,56 @@ public class MoveTile : IPiece
                 break;
             case 8://Knight
                 Offset = 17;
-                Row = true;
+                //Row = true;
                 break;
             case 9:
                 Offset = 15;
-                Row = true;
+                //Row = true;
                 break;
             case 10:
                 Offset = 10;
-                Row = true;
+                //Row = true;
                 break;
             case 11:
                 Offset = 6;
-                Row = true;
+                //Row = true;
                 break;
             case 12:
                 Offset = -17;
-                Row = true;
+                //Row = true;
                 break;
             case 13:
                 Offset = -15;
-                Row = true;
+                //Row = true;
                 break;
             case 14:
                 Offset = -10;
-                Row = true;
+                //Row = true;
                 break;
             case 15:
                 Offset = -6;
-                Row = true;
+                //Row = true;
                 break;
+        }
+        if (initial)
+        {
+
+            if (location < 64 - Offset && location > 0 - Offset)
+            {
+                if (!extend && Board.GameBoard[location + Offset] == null)
+                {
+                    Board.Move(creator, color, direction, location + Offset, false);
+                }
+            }
         }
         if (location < 64 - Offset && location > 0 - Offset)
         {
-            if (extend && Board.GameBoard[location + Offset] == null && (!Row || location % 8 != 7 && location % 8 != 0))
+            if (extend && Board.GameBoard[location + Offset] == null)
             {
-                Board.Move(creator, color, direction, location + Offset, extend);
+                if (!Row || !(Offset > 0 && location % 8 == 7) && !(Offset < 0 && location % 8 == 0))
+                {
+                    Board.Move(creator, color, direction, location + Offset, extend);
+                }
             }
             /*else if (Extend && Board.GameBoard[Location + Offset] == Board.GameBoard[Location + Offset].Color!=this.Color && (!Row || Location % 8 != 7 && Location % 8 != 0))
             {
@@ -88,21 +103,29 @@ public class MoveTile : IPiece
         }
 
     }
-    public MoveTile(IPiece creator, bool color, int Direction, int Location, bool Extend, bool Initial) : this(creator, color, Direction, Location, Extend)
-    {
-        if (Location < 64 - Offset && Location > 0 - Offset)
-        {
-            if (!Extend && Board.GameBoard[Location + Offset] == null && (!Row || Location % 8 != 7 && Location % 8 != 0))
-            {
-                Board.Move(creator, color, Direction, Location + Offset, false);
-            }
-        }
-    }
+
 
     override public void Move()
     {
-        Board.GameBoard[Creator.Position] = null;
+        Creator.LastMoved = DateTime.Now;
+        Board.MoveTiles.Remove(this);
         Board.GameBoard[this.Position] = Creator;
-        Creator.Position=this.Position;
+        Board.GameBoard[Creator.Position] = null;
+        Creator.Position = this.Position;
+        Board.RemoveMoves();
+        Creator.OnCooldown = true;
+        Task<bool> cooldownEnds = EndCooldownAsync(2);
+        //EndCooldownTimer();
+
+    }
+
+    public void EndCooldown()
+    {
+        Creator.OnCooldown = false;
+    }
+
+    static async Task<bool> EndCooldownAsync(int a)
+    {
+        await EndCooldown();
     }
 }

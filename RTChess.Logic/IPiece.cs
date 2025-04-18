@@ -5,17 +5,17 @@ public class IPiece
     public bool Color { get; set; }
     public char Display { get; set; }
     public bool Dead { get; set; }
-    public int Cooldown { get; set; }
+    public int CooldownSeconds { get; set; } = 1;
+    public bool OnCooldown { get; set; } = false;
     public int Position { get; set; }
+    public DateTime LastMoved { get; set; }
 
-    public IPiece(bool color, int position)
+    public IPiece(bool color, int position) : this(color)
     {
-        Color = color;
         Position = position;
     }
-    public IPiece(bool color, char display)
+    public IPiece(bool color, char display) : this(color)
     {
-        Color = color;
         Display = display;
     }
     public IPiece(bool color)
