@@ -1,6 +1,6 @@
-﻿@page "/Game"
+﻿@page "/play"
 
-<PageTitle>Game</PageTitle>
+<PageTitle>Play</PageTitle>
 
 
 @if (true)//Chess/Checkers
@@ -22,7 +22,7 @@
                         {
                             <div @onclick=@(() => MovePiece(piece))> <!--<a href="/">REQ#5.1.1</a> -->
                                 @Board.GameBoard[i * 8 + j]?.Display
-                            </div>
+                            </div>  
                         }
                     </td>
                 }

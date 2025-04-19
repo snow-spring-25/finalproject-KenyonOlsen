@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("RTChess.WebUI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8d11a7814accea50afb9052d575fe877973315c6")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3f229e6ef27328d937942c8de94490340857ea98")]
 [assembly: System.Reflection.AssemblyProductAttribute("RTChess.WebUI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("RTChess.WebUI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
