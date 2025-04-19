@@ -92,8 +92,12 @@ public class Board
         }
     }
 
-    public static void EndGame(bool Winner)
+    public static void EndGame(bool winner)
     {
+        //if (Game.P1.Color == winner)
+        //{
+
+        //}
         GameRunning = false;
     }
 }

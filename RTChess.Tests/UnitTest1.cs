@@ -76,4 +76,11 @@ public class UnitTest1
         }
         Assert.True(flag);
     }
+
+    [Fact]
+    public void PlayerCreation()
+    {
+        Player p1 = new Player("Alice");
+        Player p2 = new Player("Bob");
+    }
 }
