@@ -38,5 +38,6 @@ public class King : IPiece
         Board.GameBoard[DangerBy.Position] = null;
         DangerBy.Position = Position;
         Board.RemoveMoves();
+        Board.EndGame(!Color);
     }
 }

@@ -27,6 +27,18 @@ public class UnitTest1
     }
 
     [Fact]
+    public void CheckersPositionMatches()
+    {
+        for (int i = 0; i < 64; i++)
+        {
+            if (CheckersBoard.GameBoard[i] != null)
+            {
+                Assert.True(CheckersBoard.GameBoard[i].Position == i);
+            }
+        }
+    }
+
+    [Fact]
     public void MoveTilePositionMatchesPreMove()
     {
         bool flag = true;

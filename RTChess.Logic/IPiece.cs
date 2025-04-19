@@ -1,5 +1,5 @@
 ﻿namespace RTChess.Logic;
-
+//REQ#2.2.1
 public class IPiece
 {
     public bool Color { get; set; }

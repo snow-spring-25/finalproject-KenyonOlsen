@@ -5,6 +5,7 @@ public class Board
     public Board()
     {
     }
+    public static bool GameRunning { get; set; } = true;
     public static List<MoveTile> MoveTiles = new List<MoveTile>();
     public static IPiece WRook1 = new Rook(true, 0);
     public static IPiece WRook2 = new Rook(true, 7);
@@ -48,17 +49,17 @@ public class Board
         null, null, null, null, null, null, null, null ,
         BPawn1, BPawn2, BPawn3, BPawn4, BPawn5, BPawn6, BPawn7, BPawn8,
         BRook1, BKnight1, BBishop1, BKing, BQueen, BBishop2, BKnight2, BRook2 };
-        
-/*
-    public static IPiece?[] GameBoard =  { WRook1, WKnight1, WBishop1, WKing, WQueen, WBishop2, WKnight2, WRook2,
-        null, null, null, null, null, null, null, null ,
-        null, null, null, null, null, null, null, null ,
-        null, null, null, null, null, null, null, null ,
-        null, null, null, null, null, null, null, null ,
-        null, null, null, null, null, null, null, null ,
-        null, null, null, null, null, null, null, null ,
-        BRook1, BKnight1, BBishop1, BKing, BQueen, BBishop2, BKnight2, BRook2 };
-*/
+
+    /*
+        public static IPiece?[] GameBoard =  { WRook1, WKnight1, WBishop1, WKing, WQueen, WBishop2, WKnight2, WRook2,
+            null, null, null, null, null, null, null, null ,
+            null, null, null, null, null, null, null, null ,
+            null, null, null, null, null, null, null, null ,
+            null, null, null, null, null, null, null, null ,
+            null, null, null, null, null, null, null, null ,
+            null, null, null, null, null, null, null, null ,
+            BRook1, BKnight1, BBishop1, BKing, BQueen, BBishop2, BKnight2, BRook2 };
+    */
 
     public static void Move(IPiece creator, bool color, int Direction, int Location, bool Extend)
     {
@@ -88,5 +89,10 @@ public class Board
             MoveTiles[0] = null;
             MoveTiles.RemoveAt(0);
         }
+    }
+
+    public static void EndGame(bool Winner)
+    {
+        GameRunning = false;
     }
 }
