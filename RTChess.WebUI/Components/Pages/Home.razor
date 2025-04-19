@@ -2,9 +2,10 @@
 
 <PageTitle>Home</PageTitle>
 
-<table>
-    @if (false)//Chess/Checkers
-    {
+
+@if (true)//Chess/Checkers
+{
+    <table>
         @for (int i = 0; i < 8; i++)
         {
             <tr>
@@ -26,10 +27,22 @@
                     </td>
                 }
             </tr>
+
         }
-    }
-    else
+    </table>
+    if (!Board.GameRunning)
     {
+        <label>Game Over!</label>  
+        string winner = Board.Winner ? "White Wins!" : "Black Wins!";
+        <p></p>
+        <label>@winner</label>
+
+    }
+}
+//Checkers
+else
+{
+    <table>
         @for (int i = 0; i < 8; i++)
         {
             <tr>
@@ -52,8 +65,9 @@
                 }
             </tr>
         }
-    }
-</table>
+    </table>
+}
+
 @code
 {
     void MovePiece(IPiece piece)

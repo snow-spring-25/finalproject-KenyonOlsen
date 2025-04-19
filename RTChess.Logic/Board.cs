@@ -6,6 +6,7 @@ public class Board
     {
     }
     public static bool GameRunning { get; set; } = true;
+    public static bool Winner { get; set; }
     public static List<MoveTile> MoveTiles = new List<MoveTile>();
     public static IPiece WRook1 = new Rook(true, 0);
     public static IPiece WRook2 = new Rook(true, 7);

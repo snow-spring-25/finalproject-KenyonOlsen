@@ -6,7 +6,7 @@ public class CheckersBoard
     {
     }
     public static bool GameRunning { get; set; } = true;
-    public static List<MoveTile> MoveTiles = new List<MoveTile>();
+    public static List<CheckersMoveTile> CheckersMoveTiles = new List<CheckersMoveTile>();
     public static IPiece Checker1 = new Checker(true, 0);
     public static IPiece Checker2 = new Checker(true, 2);
     public static IPiece Checker3 = new Checker(true, 4);
@@ -45,31 +45,31 @@ public class CheckersBoard
 
     public static void Move(IPiece creator, bool color, int Direction, int Location, bool Extend)
     {
-        MoveTile m = new MoveTile(creator, color, Direction, Location, Extend, false);
+        CheckersMoveTile m = new CheckersMoveTile(creator, color, Direction, Location, Extend, false);
 
         GameBoard[Location] = m;
-        MoveTiles.Add(m);
+        CheckersMoveTiles.Add(m);
 
     }
 
     public static void Move(IPiece creator, bool color, int Direction, int Location, bool Extend, bool Initial)
     {
-        MoveTile m = new MoveTile(creator, color, Direction, Location, Extend, Initial);
+        CheckersMoveTile m = new CheckersMoveTile(creator, color, Direction, Location, Extend, Initial);
         //MoveTiles.Add(m);
     }
 
     public static void RemoveMoves()
     {
-        foreach (MoveTile tile in MoveTiles)
+        foreach (CheckersMoveTile tile in CheckersMoveTiles)
         {
             //Console.WriteLine(GameBoard[tile.Position]);
             GameBoard[tile.Position] = null;
         }
 
-        for (int i = 0; i < MoveTiles.Count(); i++)
+        for (int i = 0; i < CheckersMoveTiles.Count(); i++)
         {
-            MoveTiles[0] = null;
-            MoveTiles.RemoveAt(0);
+            CheckersMoveTiles[0] = null;
+            CheckersMoveTiles.RemoveAt(0);
         }
     }
 
