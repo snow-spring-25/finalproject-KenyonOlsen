@@ -83,4 +83,12 @@ public class UnitTest1
         Player p1 = new Player("Alice");
         Player p2 = new Player("Bob");
     }
+
+    [Fact]
+    public void Game()
+    {
+        Player p1 = new Player("Alice");
+        Player p2 = new Player("Bob");
+        Game newGame = new Game(p1,p2);
+    }
 }
