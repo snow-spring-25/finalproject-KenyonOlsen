@@ -8,11 +8,11 @@ public class King : IPiece
         if (color)
         {
             preDisplay += 6;
-            this.Display = (char)preDisplay;
+            Display = (char)preDisplay;
         }
         else
         {
-            this.Display = (char)preDisplay;
+            Display = (char)preDisplay;
         }
     }
 
@@ -20,14 +20,23 @@ public class King : IPiece
     {
         if (DateTime.Now > this.LastMoved.AddSeconds(CooldownSeconds))
         {
-            Board.Move(this, this.Color, 0, this.Position, false, true);
-            Board.Move(this, this.Color, 1, this.Position, false, true);
-            Board.Move(this, this.Color, 2, this.Position, false, true);
-            Board.Move(this, this.Color, 3, this.Position, false, true);
-            Board.Move(this, this.Color, 4, this.Position, false, true);
-            Board.Move(this, this.Color, 5, this.Position, false, true);
-            Board.Move(this, this.Color, 6, this.Position, false, true);
-            Board.Move(this, this.Color, 7, this.Position, false, true);
+            Board.Move(this, Color, 0, Position, false, true);
+            Board.Move(this, Color, 1, Position, false, true);
+            Board.Move(this, Color, 2, Position, false, true);
+            Board.Move(this, Color, 3, Position, false, true);
+            Board.Move(this, Color, 4, Position, false, true);
+            Board.Move(this, Color, 5, Position, false, true);
+            Board.Move(this, Color, 6, Position, false, true);
+            Board.Move(this, Color, 7, Position, false, true);
         }
+    }
+
+    override public void Capture()
+    {
+        DangerBy.LastMoved = DateTime.Now;
+        Board.GameBoard[Position] = DangerBy;
+        Board.GameBoard[DangerBy.Position] = null;
+        DangerBy.Position = Position;
+        Board.RemoveMoves();
     }
 }

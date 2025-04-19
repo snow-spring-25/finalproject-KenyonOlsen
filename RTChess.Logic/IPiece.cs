@@ -9,6 +9,8 @@ public class IPiece
     public bool OnCooldown { get; set; } = false;
     public int Position { get; set; }
     public DateTime LastMoved { get; set; }
+    public bool InDanger { get; set; }
+    public IPiece DangerBy { get; set; }
 
     public IPiece(bool color, int position) : this(color)
     {
@@ -24,7 +26,12 @@ public class IPiece
     }
 
     virtual public void Move()
-    { 
+    {
+
+    }
+
+    virtual public void Capture()
+    {
 
     }
 }

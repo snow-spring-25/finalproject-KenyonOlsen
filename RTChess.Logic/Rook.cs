@@ -8,11 +8,11 @@ public class Rook : IPiece
         if (color)
         {
             preDisplay += 6;
-            this.Display = (char)preDisplay;
+            Display = (char)preDisplay;
         }
         else
         {
-            this.Display = (char)preDisplay;
+            Display = (char)preDisplay;
         }
     }
 
@@ -20,10 +20,19 @@ public class Rook : IPiece
     {
         if (DateTime.Now > this.LastMoved.AddSeconds(CooldownSeconds))
         {
-            Board.Move(this, this.Color, 0, this.Position, true, true);
-            Board.Move(this, this.Color, 1, this.Position, true, true);
-            Board.Move(this, this.Color, 2, this.Position, true, true);
-            Board.Move(this, this.Color, 3, this.Position, true, true);
+            Board.Move(this, Color, 0, Position, true, true);
+            Board.Move(this, Color, 1, Position, true, true);
+            Board.Move(this, Color, 2, Position, true, true);
+            Board.Move(this, Color, 3, Position, true, true);
         }
+    }
+
+    override public void Capture()
+    {
+        DangerBy.LastMoved = DateTime.Now;
+        Board.GameBoard[Position] = DangerBy;
+        Board.GameBoard[DangerBy.Position] = null;
+        DangerBy.Position = Position;
+        Board.RemoveMoves();
     }
 }

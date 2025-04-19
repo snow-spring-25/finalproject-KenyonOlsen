@@ -8,11 +8,11 @@ public class Knight : IPiece
         if (color)
         {
             preDisplay += 6;
-            this.Display = (char)preDisplay;
+            Display = (char)preDisplay;
         }
         else
         {
-            this.Display = (char)preDisplay;
+            Display = (char)preDisplay;
         }
     }
 
@@ -21,14 +21,23 @@ public class Knight : IPiece
         if (DateTime.Now > this.LastMoved.AddSeconds(CooldownSeconds))
         {
             //Can go across the board when overflowing a row
-            Board.Move(this, this.Color, 8, this.Position, false, true);
-            Board.Move(this, this.Color, 9, this.Position, false, true);
-            Board.Move(this, this.Color, 10, this.Position, false, true);
-            Board.Move(this, this.Color, 11, this.Position, false, true);
-            Board.Move(this, this.Color, 12, this.Position, false, true);
-            Board.Move(this, this.Color, 13, this.Position, false, true);
-            Board.Move(this, this.Color, 14, this.Position, false, true);
-            Board.Move(this, this.Color, 15, this.Position, false, true);
+            Board.Move(this, Color, 8, Position, false, true);
+            Board.Move(this, Color, 9, Position, false, true);
+            Board.Move(this, Color, 10, Position, false, true);
+            Board.Move(this, Color, 11, Position, false, true);
+            Board.Move(this, Color, 12, Position, false, true);
+            Board.Move(this, Color, 13, Position, false, true);
+            Board.Move(this, Color, 14, Position, false, true);
+            Board.Move(this, Color, 15, Position, false, true);
         }
+    }
+
+    override public void Capture()
+    {
+        DangerBy.LastMoved = DateTime.Now;
+        Board.GameBoard[Position] = DangerBy;
+        Board.GameBoard[DangerBy.Position] = null;
+        DangerBy.Position = Position;
+        Board.RemoveMoves();
     }
 }

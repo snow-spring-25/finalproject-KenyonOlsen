@@ -8,11 +8,11 @@ public class Pawn : IPiece
         if (color)
         {
             preDisplay += 6;
-            this.Display = (char)preDisplay;
+            Display = (char)preDisplay;
         }
         else
         {
-            this.Display = (char)preDisplay;
+            Display = (char)preDisplay;
         }
     }
 
@@ -20,7 +20,22 @@ public class Pawn : IPiece
     {
         if (DateTime.Now > this.LastMoved.AddSeconds(CooldownSeconds))
         {
-
+            Board.Move(this, Color, 16, Position, false, true);
+            if ((Color && Position < 16) || (!Color && Position > 48))
+            {
+                Board.Move(this, this.Color, 17, this.Position, false, true);
+            }
+            Board.Move(this, Color, 18, Position, false, true);
+            Board.Move(this, Color, 19, Position, false, true);
         }
+    }
+
+    override public void Capture()
+    {
+        DangerBy.LastMoved = DateTime.Now;
+        Board.GameBoard[Position] = DangerBy;
+        Board.GameBoard[DangerBy.Position] = null;
+        DangerBy.Position = Position;
+        Board.RemoveMoves();
     }
 }

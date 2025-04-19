@@ -9,11 +9,11 @@ public class Bishop : IPiece
         if (color)
         {
             preDisplay += 6;
-            this.Display = (char)preDisplay;
+            Display = (char)preDisplay;
         }
         else
         {
-            this.Display = (char)preDisplay;
+            Display = (char)preDisplay;
         }
     }
 
@@ -21,10 +21,19 @@ public class Bishop : IPiece
     {
         if (DateTime.Now > this.LastMoved.AddSeconds(CooldownSeconds))
         {
-            Board.Move(this, this.Color, 4, this.Position, true, true);
-            Board.Move(this, this.Color, 5, this.Position, true, true);
-            Board.Move(this, this.Color, 6, this.Position, true, true);
-            Board.Move(this, this.Color, 7, this.Position, true, true);
+            Board.Move(this, Color, 4, Position, true, true);
+            Board.Move(this, Color, 5, Position, true, true);
+            Board.Move(this, Color, 6, Position, true, true);
+            Board.Move(this, Color, 7, Position, true, true);
         }
+    }
+    
+    override public void Capture()
+    {
+        DangerBy.LastMoved = DateTime.Now;
+        Board.GameBoard[Position] = DangerBy;
+        Board.GameBoard[DangerBy.Position] = null;
+        DangerBy.Position = Position;
+        Board.RemoveMoves();
     }
 }

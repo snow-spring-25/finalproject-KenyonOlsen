@@ -13,7 +13,7 @@
                 bool isOdd = (i + j) % 2 == 0;
                 string background = isOdd ? "background-color: rgba(0,0,0,0.5);" : "";
                 background = isOnCooldown ? "background-color: rgba(255,0,0,0.1);" : background;
-                
+
                 <td style=@($"{background}height: 30px; width: 30px; text-align: center;")>
                     @if (piece != null)
                     {
@@ -31,10 +31,19 @@
 {
     void MovePiece(IPiece piece)
     {
-        if (piece is not MoveTile)
+        if (piece.Color == true)
+        {
+            if (piece is not MoveTile)
+            {
+                Board.RemoveMoves();
+            }
+            piece.Move();
+        }
+        else if (piece.InDanger == true)
         {
             Board.RemoveMoves();
+            piece.Capture();
         }
-        piece.Move();
+
     }
 }

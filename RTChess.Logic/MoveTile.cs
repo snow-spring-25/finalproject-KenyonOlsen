@@ -1,10 +1,13 @@
 namespace RTChess.Logic;
-
+using System;
+using System.Threading.Tasks;
 public class MoveTile : IPiece
 {
     public int Offset { get; set; }
     public bool Row { get; set; }
+    public bool Pawn { get; set; } = false;
     public IPiece Creator { get; set; }
+
 
     public MoveTile(IPiece creator, bool color, int direction, int location, bool extend, bool initial) : base(color, location)
     {
@@ -75,6 +78,51 @@ public class MoveTile : IPiece
                 Offset = -6;
                 //Row = true;
                 break;
+            //Pawns >:(
+            case 16:
+                if (color)
+                {
+                    Offset = 8;
+                }
+                else
+                {
+                    Offset = -8;
+                }
+                Pawn = true;
+                break;
+            case 17:
+                if (color)
+                {
+                    Offset = 16;
+                }
+                else
+                {
+                    Offset = -16;
+                }
+                Pawn = true;
+                break;
+            case 18:
+                if (color)
+                {
+                    Offset = 7;
+                }
+                else
+                {
+                    Offset = -7;
+                }
+                Pawn = true;
+                break;
+            case 19:
+                if (color)
+                {
+                    Offset = 9;
+                }
+                else
+                {
+                    Offset = -9;
+                }
+                Pawn = true;
+                break;
         }
         if (initial)
         {
@@ -83,11 +131,33 @@ public class MoveTile : IPiece
             {
                 if (!extend && Board.GameBoard[location + Offset] == null)
                 {
-                    Board.Move(creator, color, direction, location + Offset, false);
+                    if (!Pawn)
+                    {
+                        Board.Move(creator, color, direction, location + Offset, false);
+                    }
+                    else if (Offset == 8 || Offset == 16 || Offset == -8 || Offset == -16)
+                    {
+                        Board.Move(creator, color, direction, location + Offset, false);
+                    }
                 }
+                else if (!extend && Board.GameBoard[location + Offset].Color != color)
+                    if (!Row || !(Offset > 0 && location % 8 == 7) && !(Offset < 0 && location % 8 == 0))
+                    {
+                        if (!Pawn)
+                        {
+                            //Capturing Pieces(see below)
+                            Board.GameBoard[location + Offset].InDanger = true;
+                            Board.GameBoard[location + Offset].DangerBy = Creator;
+                        }
+                        else if (Offset == 7 || Offset == 9 || Offset == -7 || Offset == -9)
+                        {
+                            Board.GameBoard[location + Offset].InDanger = true;
+                            Board.GameBoard[location + Offset].DangerBy = Creator;
+                        }
+                    }
             }
         }
-        if (location < 64 - Offset && location > 0 - Offset)
+        if (location < 64 - Offset && location > 0 - Offset && !Pawn)
         {
             if (extend && Board.GameBoard[location + Offset] == null)
             {
@@ -96,10 +166,13 @@ public class MoveTile : IPiece
                     Board.Move(creator, color, direction, location + Offset, extend);
                 }
             }
-            /*else if (Extend && Board.GameBoard[Location + Offset] == Board.GameBoard[Location + Offset].Color!=this.Color && (!Row || Location % 8 != 7 && Location % 8 != 0))
-            {
-                Board.Move(color, Direction, Location + Offset, false);
-            }*/
+            //Capturing Pieces (see above)
+            else if (extend && Board.GameBoard[location + Offset].Color != color)
+                if (!Row || !(Offset > 0 && location % 8 == 7) && !(Offset < 0 && location % 8 == 0))
+                {
+                    Board.GameBoard[location + Offset].InDanger = true;
+                    Board.GameBoard[location + Offset].DangerBy = Creator;
+                }
         }
 
     }
@@ -109,23 +182,9 @@ public class MoveTile : IPiece
     {
         Creator.LastMoved = DateTime.Now;
         Board.MoveTiles.Remove(this);
-        Board.GameBoard[this.Position] = Creator;
+        Board.GameBoard[Position] = Creator;
         Board.GameBoard[Creator.Position] = null;
-        Creator.Position = this.Position;
+        Creator.Position = Position;
         Board.RemoveMoves();
-        Creator.OnCooldown = true;
-        Task<bool> cooldownEnds = EndCooldownAsync(2);
-        //EndCooldownTimer();
-
-    }
-
-    public void EndCooldown()
-    {
-        Creator.OnCooldown = false;
-    }
-
-    static async Task<bool> EndCooldownAsync(int a)
-    {
-        await EndCooldown();
     }
 }

@@ -40,7 +40,7 @@ public class Board
     public static IPiece BPawn7 = new Pawn(false, 54);
     public static IPiece BPawn8 = new Pawn(false, 55);
 
-    /*public static IPiece?[] GameBoard =  { WRook1, WKnight1, WBishop1, WKing, WQueen, WBishop2, WKnight2, WRook2,
+    public static IPiece?[] GameBoard =  { WRook1, WKnight1, WBishop1, WKing, WQueen, WBishop2, WKnight2, WRook2,
         WPawn1, WPawn2, WPawn3, WPawn4, WPawn5, WPawn6, WPawn7, WPawn8,
         null, null, null, null, null, null, null, null ,
         null, null, null, null, null, null, null, null ,
@@ -48,8 +48,8 @@ public class Board
         null, null, null, null, null, null, null, null ,
         BPawn1, BPawn2, BPawn3, BPawn4, BPawn5, BPawn6, BPawn7, BPawn8,
         BRook1, BKnight1, BBishop1, BKing, BQueen, BBishop2, BKnight2, BRook2 };
-        */
-
+        
+/*
     public static IPiece?[] GameBoard =  { WRook1, WKnight1, WBishop1, WKing, WQueen, WBishop2, WKnight2, WRook2,
         null, null, null, null, null, null, null, null ,
         null, null, null, null, null, null, null, null ,
@@ -58,7 +58,7 @@ public class Board
         null, null, null, null, null, null, null, null ,
         null, null, null, null, null, null, null, null ,
         BRook1, BKnight1, BBishop1, BKing, BQueen, BBishop2, BKnight2, BRook2 };
-
+*/
 
     public static void Move(IPiece creator, bool color, int Direction, int Location, bool Extend)
     {
@@ -79,7 +79,7 @@ public class Board
     {
         foreach (MoveTile tile in MoveTiles)
         {
-            Console.WriteLine(GameBoard[tile.Position]);
+            //Console.WriteLine(GameBoard[tile.Position]);
             GameBoard[tile.Position] = null;
         }
 
