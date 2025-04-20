@@ -27,13 +27,13 @@ public class Bishop : IPiece
             Board.Move(this, Color, 7, Position, true, true);
         }
     }
-    
+
     override public void Capture()
     {
         DangerBy.LastMoved = DateTime.Now;
         Board.GameBoard[Position] = DangerBy;
         Board.GameBoard[DangerBy.Position] = null;
         DangerBy.Position = Position;
-        Board.RemoveMoves();
+        Board.RemoveMoves(Color);
     }
 }
