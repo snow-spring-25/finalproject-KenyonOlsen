@@ -10,7 +10,8 @@ public class CheckersMoveTile : IPiece
 
     public CheckersMoveTile(IPiece creator, bool color, int direction, int location, bool extend, bool initial) : base(color, location)
     {
-
+        DateTime date = new DateTime(2006, 06, 10, 0, 0, 0);
+        LastMoved = date;
         Creator = creator;
         this.Display = 't';
         switch (direction)
@@ -126,7 +127,7 @@ public class CheckersMoveTile : IPiece
             {
                 if (!extend && CheckersBoard.GameBoard[location + Offset] == null)
                 {
-                        CheckersBoard.Move(creator, color, direction, location + Offset, false);
+                    CheckersBoard.Move(creator, color, direction, location + Offset, false);
                 }
                 else if (!extend && CheckersBoard.GameBoard[location + Offset].Color != color)
                     if (!Row || !(Offset > 0 && location % 8 == 7) && !(Offset < 0 && location % 8 == 0))
