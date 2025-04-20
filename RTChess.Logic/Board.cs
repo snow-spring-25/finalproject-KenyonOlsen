@@ -7,7 +7,8 @@ public class Board
     }
     public static bool GameRunning { get; set; } = true;
     public static bool Winner { get; set; }
-    public static List<MoveTile> MoveTiles = new List<MoveTile>();
+    public static List<MoveTile> MoveTilesBlack = new List<MoveTile>();
+    public static List<MoveTile> MoveTilesWhite = new List<MoveTile>();
     public static IPiece WRook1 = new Rook(true, 0);
     public static IPiece WRook2 = new Rook(true, 7);
     public static IPiece WKnight1 = new Knight(true, 1);
@@ -67,8 +68,14 @@ public class Board
         MoveTile m = new MoveTile(creator, color, Direction, Location, Extend, false);
 
         GameBoard[Location] = m;
-        MoveTiles.Add(m);
-
+        if (color)
+        {
+            MoveTilesWhite.Add(m);
+        }
+        else
+        {
+            MoveTilesBlack.Add(m);
+        }
     }
 
     public static void Move(IPiece creator, bool color, int Direction, int Location, bool Extend, bool Initial)
@@ -77,27 +84,44 @@ public class Board
         //MoveTiles.Add(m);
     }
 
-    public static void RemoveMoves()
+    public static void RemoveMoves(bool color)
     {
-        foreach (MoveTile tile in MoveTiles)
+        if (color)
         {
-            //Console.WriteLine(GameBoard[tile.Position]);
-            GameBoard[tile.Position] = null;
-        }
+            foreach (MoveTile tile in MoveTilesWhite)
+            {
+                //Console.WriteLine(GameBoard[tile.Position]);
+                GameBoard[tile.Position] = null;
+            }
 
-        for (int i = 0; i < MoveTiles.Count(); i++)
+            for (int i = 0; i < MoveTilesWhite.Count(); i++)
+            {
+                MoveTilesWhite[0] = null;
+                MoveTilesWhite.RemoveAt(0);
+            }
+        }
+        else
         {
-            MoveTiles[0] = null;
-            MoveTiles.RemoveAt(0);
+            foreach (MoveTile tile in MoveTilesBlack)
+            {
+                //Console.WriteLine(GameBoard[tile.Position]);
+                GameBoard[tile.Position] = null;
+            }
+
+            for (int i = 0; i < MoveTilesBlack.Count(); i++)
+            {
+                MoveTilesBlack[0] = null;
+                MoveTilesBlack.RemoveAt(0);
+            }
         }
     }
 
     public static void EndGame(bool winner)
     {
-        //if (Game.P1.Color == winner)
-        //{
-
-        //}
+        if (Game.P1.Color == winner)
+        {
+            Game.P1.Wins += 1;
+        }
         GameRunning = false;
     }
 }
