@@ -6,8 +6,8 @@ public class Player
     public bool Color { get; set; }
     public int Wins { get; set; }
 
-    public Player(string name)
+    public Player(bool color)
     {
-        Name = name;
+        Color = color;
     }
 }
