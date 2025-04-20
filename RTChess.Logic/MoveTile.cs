@@ -8,9 +8,10 @@ public class MoveTile : IPiece
     public bool Pawn { get; set; } = false;
     public IPiece Creator { get; set; }
 
-
     public MoveTile(IPiece creator, bool color, int direction, int location, bool extend, bool initial) : base(color, location)
     {
+        DateTime date = new DateTime(2006, 06, 10, 0, 0, 0);
+        LastMoved = date;
 
         Creator = creator;
         this.Display = 't';
@@ -181,10 +182,17 @@ public class MoveTile : IPiece
     override public void Move()
     {
         Creator.LastMoved = DateTime.Now;
-        Board.MoveTiles.Remove(this);
+        if(Color)
+        {
+            Board.MoveTilesWhite.Remove(this);
+        }
+        else
+        {
+            Board.MoveTilesBlack.Remove(this);
+        }
         Board.GameBoard[Position] = Creator;
         Board.GameBoard[Creator.Position] = null;
         Creator.Position = Position;
-        Board.RemoveMoves();
+        Board.RemoveMoves(Color);
     }
 }
