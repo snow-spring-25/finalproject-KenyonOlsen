@@ -1,0 +1,93 @@
+@page "/playchess"
+
+<PageTitle>Play</PageTitle>
+@if (true)//Chess/Checkers
+{
+    <table>
+        @for (int i = 0; i < 8; i++)
+        {
+            <tr>
+                @for (int j = 0; j < 8; j++)
+                {
+                    IPiece piece = Board.GameBoard[i * 8 + j];
+                    bool isOnCooldown = (piece != null && piece.OnCooldown);
+                    bool isOdd = (i + j) % 2 == 0;
+                    double CoolDownColor = 0.0;
+                    string background = isOdd ? ("background-color: rgba(0,0,0,0.5);") : ("background-color: rgba(0,0,0,0.0);");
+                    @if (piece != null && !(piece is MoveTile && piece.Color!=true))
+                    {
+                        CoolDownColor = (200-piece.GetCooldownPercent() * 255);
+                    }
+                    if (CoolDownColor > 55)//55 to make the cooldown expiring more obvious
+                    {
+                    background = isOdd ? ("background-color: rgba(" + CoolDownColor.ToString() + ",0,0,0.5);") : ("background-color: rgba(" + CoolDownColor.ToString() + ",0,0,0.25);");
+                    }
+
+                    <td style=@($"{background}height: 30px; width: 30px; text-align: center;")>
+                    @if (piece != null && !(piece is MoveTile && piece.Color!=true))
+                        {
+                            <div @onclick=@(() => MovePiece(piece))> <!--<a href="/">REQ#5.1.1</a> -->
+                                @Board.GameBoard[i * 8 + j]?.Display
+                            </div>
+                        }
+                    </td>
+                }
+            </tr>
+
+        }
+    </table>
+    if (!Board.GameRunning)
+    {
+        <label>Game Over!</label>
+        string winner = Board.Winner ? "White Wins!" : "Black Wins!";
+        <p></p>
+        <label>@winner</label>
+
+    }
+}
+
+
+@code
+{
+    void MovePiece(IPiece piece)
+    {
+        if (Board.GameRunning)
+        {
+            if (piece.Color == true)
+            {
+                if (piece is not MoveTile)
+                {
+                    Board.RemoveMoves(false);
+                }
+                piece.Move();
+            }
+            else if (piece.InDanger == true)
+            {
+                Board.RemoveMoves(false);
+                piece.Capture();
+            }
+        }
+    }
+
+    //From mPalmer
+    protected override async Task OnInitializedAsync()
+    {
+        // Set up a timer to update the current time every 2 seconds
+        var timer = new System.Threading.Timer(
+            e =>
+            {
+                InvokeAsync(() =>
+                {
+                    //currentTime = DateTime.Now.ToString();
+               
+                    // Call this to force the server to send a new updated view
+                    StateHasChanged();
+                });
+            },
+            null,
+            TimeSpan.Zero,
+            TimeSpan.FromSeconds(0.25)
+        );
+    }
+    // End copied code
+}
