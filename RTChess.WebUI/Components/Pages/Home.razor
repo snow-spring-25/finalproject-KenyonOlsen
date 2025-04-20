@@ -1,34 +1,35 @@
-﻿@page "/"
+@page "/"
 
 <PageTitle>Home</PageTitle>
 
-<input @bind=name1 />
+@* <input @bind=name1 />
 <button @onclick=createPlayer>Enter Player 1's name</button>
 
 <input @bind=name2 />
 <button @onclick=createPlayer>Enter Player 2's name</button>
+<p></p> *@
+<input @bind=cooldown />
+<label>What cooldown would you like?</label>
 <p></p>
 <button @onclick=createGame>Create a game</button>
+<p></p>
+<label>Black Wins: @Game.P1.Wins</label>
+<p></p>
+<label>White Wins: @Game.P2.Wins</label>
 
 @code
 {
     string name1;
     string name2;
+    int cooldown = 5;
     Player p1;
     Player p2;
-    public void createPlayer()
-    {
-        p1 = new Player(name1);
-        p2 = new Player(name2);
-        name1 = "";
-        name2 = "";
-    }
 
     public void createGame()
     {
+        IPiece.CooldownSeconds = cooldown;
         if (p1 != null && p2 != null)
         {
-            Game newGame = new Game(p1,p2);
         }
 
     }
