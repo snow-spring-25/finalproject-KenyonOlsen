@@ -37,6 +37,6 @@ public class Queen : IPiece
         Board.GameBoard[Position] = DangerBy;
         Board.GameBoard[DangerBy.Position] = null;
         DangerBy.Position = Position;
-        Board.RemoveMoves();
+        Board.RemoveMoves(Color);
     }
 }
