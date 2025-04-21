@@ -1,9 +1,10 @@
 namespace RTChess.Logic;
 
-public class Knight : IPiece
+public class King : IPiece
 {
-    int preDisplay = (int)'♘';
-    public Knight(bool color, int Position) : base(color, Position)
+    int preDisplay = (int)'♔';
+
+    public King(bool color, int Position) : base(color, Position)
     {
         if (color)
         {
@@ -20,15 +21,14 @@ public class Knight : IPiece
     {
         if (DateTime.Now > this.LastMoved.AddSeconds(CooldownSeconds))
         {
-            //Can go across the board when overflowing a row
-            Board.Move(this, Color, 8, Position, false, true);
-            Board.Move(this, Color, 9, Position, false, true);
-            Board.Move(this, Color, 10, Position, false, true);
-            Board.Move(this, Color, 11, Position, false, true);
-            Board.Move(this, Color, 12, Position, false, true);
-            Board.Move(this, Color, 13, Position, false, true);
-            Board.Move(this, Color, 14, Position, false, true);
-            Board.Move(this, Color, 15, Position, false, true);
+            Board.Move(this, Color, 0, Position, false, true);
+            Board.Move(this, Color, 1, Position, false, true);
+            Board.Move(this, Color, 2, Position, false, true);
+            Board.Move(this, Color, 3, Position, false, true);
+            Board.Move(this, Color, 4, Position, false, true);
+            Board.Move(this, Color, 5, Position, false, true);
+            Board.Move(this, Color, 6, Position, false, true);
+            Board.Move(this, Color, 7, Position, false, true);
         }
     }
 
@@ -39,5 +39,6 @@ public class Knight : IPiece
         Board.GameBoard[DangerBy.Position] = null;
         DangerBy.Position = Position;
         Board.RemoveMoves(Color);
+        Board.EndGame(!Color);
     }
 }

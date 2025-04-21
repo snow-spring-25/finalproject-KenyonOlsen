@@ -32,8 +32,12 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xIb21lLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kenyon.olsen/my-code-dir/RTChess/finalproject-KenyonOlsen/RTChess.WebUI/Components/Pages/Play.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xQbGF5LnJhem9y
+[C:/Users/kenyon.olsen/my-code-dir/RTChess/finalproject-KenyonOlsen/RTChess.WebUI/Components/Pages/PlayChess.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xQbGF5Q2hlc3MucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/kenyon.olsen/my-code-dir/RTChess/finalproject-KenyonOlsen/RTChess.WebUI/Components/Pages/PlayChessWhite.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xQbGF5Q2hlc3NXaGl0ZS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/kenyon.olsen/my-code-dir/RTChess/finalproject-KenyonOlsen/RTChess.WebUI/Components/Pages/Weather.razor]

@@ -192,7 +192,7 @@ public class Board
 
     public static void RemoveMoves(bool color)
     {
-        if (color)
+        if (!color)
         {
             foreach (MoveTile tile in MoveTilesWhite)
             {

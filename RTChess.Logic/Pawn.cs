@@ -21,7 +21,7 @@ public class Pawn : IPiece
         if (DateTime.Now > this.LastMoved.AddSeconds(CooldownSeconds))
         {
             Board.Move(this, Color, 16, Position, false, true);
-            if ((Color && Position < 16) || (!Color && Position > 48))
+            if ((Color && Position < 16) || (!Color && Position > 47))
             {
                 Board.Move(this, this.Color, 17, this.Position, false, true);
             }

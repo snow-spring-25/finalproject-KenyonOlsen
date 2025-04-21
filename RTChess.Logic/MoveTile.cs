@@ -193,6 +193,6 @@ public class MoveTile : IPiece
         Board.GameBoard[Position] = Creator;
         Board.GameBoard[Creator.Position] = null;
         Creator.Position = Position;
-        Board.RemoveMoves(Color);
+        Board.RemoveMoves(!Color);
     }
 }
