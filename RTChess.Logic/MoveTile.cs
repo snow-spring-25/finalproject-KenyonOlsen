@@ -6,6 +6,7 @@ public class MoveTile : IPiece
     public int Offset { get; set; }
     public bool Row { get; set; }
     public bool Pawn { get; set; } = false;
+    public bool RightOrLeft { get; set; }
     public IPiece Creator { get; set; }
 
     public MoveTile(IPiece creator, bool color, int direction, int location, bool extend, bool initial) : base(color, location)
@@ -23,6 +24,7 @@ public class MoveTile : IPiece
             case 1:
                 Offset = 1;
                 Row = true;
+                RightOrLeft = true;
                 break;
             case 2:
                 Offset = -8;
@@ -30,54 +32,67 @@ public class MoveTile : IPiece
             case 3:
                 Offset = -1;
                 Row = true;
+                RightOrLeft = false;
                 break;
             case 4://Bishop
                 Offset = 9;
                 Row = true;
+                RightOrLeft = true;
                 break;
             case 5:
                 Offset = 7;
                 Row = true;
+                RightOrLeft = false;
                 break;
             case 6:
                 Offset = -7;
                 Row = true;
+                RightOrLeft = true;
                 break;
             case 7:
                 Offset = -9;
                 Row = true;
+                RightOrLeft = false;
                 break;
             case 8://Knight
                 Offset = 17;
-                //Row = true;
+                Row = true;
+                RightOrLeft = true;
                 break;
             case 9:
                 Offset = 15;
-                //Row = true;
+                Row = true;
+                RightOrLeft = false;
                 break;
             case 10:
                 Offset = 10;
-                //Row = true;
+                Row = true;
+                RightOrLeft = true;
                 break;
             case 11:
                 Offset = 6;
-                //Row = true;
+                Row = true;
+                RightOrLeft = false;
                 break;
             case 12:
                 Offset = -17;
-                //Row = true;
+                Row = true;
+                RightOrLeft = false;
                 break;
             case 13:
                 Offset = -15;
-                //Row = true;
+                Row = true;
+                RightOrLeft = true;
                 break;
             case 14:
                 Offset = -10;
-                //Row = true;
+                Row = true;
+                RightOrLeft = false;
                 break;
             case 15:
                 Offset = -6;
-                //Row = true;
+                Row = true;
+                RightOrLeft = true;
                 break;
             //Pawns >:(
             case 16:
@@ -142,7 +157,7 @@ public class MoveTile : IPiece
                     }
                 }
                 else if (!extend && Board.GameBoard[location + Offset].Color != color)
-                    if (!Row || !(Offset > 0 && location % 8 == 7) && !(Offset < 0 && location % 8 == 0))
+                    if (!Row || !(RightOrLeft && location % 8 == 7) && !(Offset < 0 && location % 8 == 0))
                     {
                         if (!Pawn)
                         {
@@ -162,7 +177,7 @@ public class MoveTile : IPiece
         {
             if (extend && Board.GameBoard[location + Offset] == null)
             {
-                if (!Row || !(Offset > 0 && location % 8 == 7) && !(Offset < 0 && location % 8 == 0))
+                if (!Row || !((RightOrLeft) && Offset != 7 && location % 8 == 7) && !((!RightOrLeft) && Offset != -7 && location % 8 == 0))
                 {
                     Board.Move(creator, color, direction, location + Offset, extend);
                 }
@@ -182,7 +197,7 @@ public class MoveTile : IPiece
     override public void Move()
     {
         Creator.LastMoved = DateTime.Now;
-        if(Color)
+        if (Color)
         {
             Board.MoveTilesWhite.Remove(this);
         }

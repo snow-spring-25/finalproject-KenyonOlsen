@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("RTChess.Persistence")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+88b26ae113b93458764d0993081ab861a8f5a067")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0dcd6683281ed61ce430869c0767bbf68462ef97")]
 [assembly: System.Reflection.AssemblyProductAttribute("RTChess.Persistence")]
 [assembly: System.Reflection.AssemblyTitleAttribute("RTChess.Persistence")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
