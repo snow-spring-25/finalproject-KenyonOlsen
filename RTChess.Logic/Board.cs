@@ -43,6 +43,14 @@ public class Board
     public static IPiece BPawn6 = new Pawn(false, 53);
     public static IPiece BPawn7 = new Pawn(false, 54);
     public static IPiece BPawn8 = new Pawn(false, 55);
+    public static IPiece?[] StartingBoard = { WRook1, WKnight1, WBishop1, WKing, WQueen, WBishop2, WKnight2, WRook2,
+        WPawn1, WPawn2, WPawn3, WPawn4, WPawn5, WPawn6, WPawn7, WPawn8,
+        null, null, null, null, null, null, null, null ,
+        null, null, null, null, null, null, null, null ,
+        null, null, null, null, null, null, null, null ,
+        null, null, null, null, null, null, null, null ,
+        BPawn1, BPawn2, BPawn3, BPawn4, BPawn5, BPawn6, BPawn7, BPawn8,
+        BRook1, BKnight1, BBishop1, BKing, BQueen, BBishop2, BKnight2, BRook2 };
 
     public static IPiece?[] GameBoard =  { WRook1, WKnight1, WBishop1, WKing, WQueen, WBishop2, WKnight2, WRook2,
         WPawn1, WPawn2, WPawn3, WPawn4, WPawn5, WPawn6, WPawn7, WPawn8,
@@ -52,17 +60,6 @@ public class Board
         null, null, null, null, null, null, null, null ,
         BPawn1, BPawn2, BPawn3, BPawn4, BPawn5, BPawn6, BPawn7, BPawn8,
         BRook1, BKnight1, BBishop1, BKing, BQueen, BBishop2, BKnight2, BRook2 };
-
-    /*
-        public static IPiece?[] GameBoard =  { WRook1, WKnight1, WBishop1, WKing, WQueen, WBishop2, WKnight2, WRook2,
-            null, null, null, null, null, null, null, null ,
-            null, null, null, null, null, null, null, null ,
-            null, null, null, null, null, null, null, null ,
-            null, null, null, null, null, null, null, null ,
-            null, null, null, null, null, null, null, null ,
-            null, null, null, null, null, null, null, null ,
-            BRook1, BKnight1, BBishop1, BKing, BQueen, BBishop2, BKnight2, BRook2 };
-    */
 
     public static void CreateBoard()
     {
@@ -202,7 +199,10 @@ public class Board
 
             for (int i = 0; i < MoveTilesWhite.Count(); i++)
             {
-                MoveTilesWhite[0] = null;
+                if (MoveTilesWhite[0] is MoveTile)
+                {
+                    MoveTilesWhite[0] = null;
+                }
                 MoveTilesWhite.RemoveAt(0);
             }
         }
@@ -216,7 +216,10 @@ public class Board
 
             for (int i = 0; i < MoveTilesBlack.Count(); i++)
             {
-                MoveTilesBlack[0] = null;
+                if (MoveTilesBlack[0] is MoveTile)
+                {
+                    MoveTilesBlack[0] = null;
+                }
                 MoveTilesBlack.RemoveAt(0);
             }
         }
@@ -228,6 +231,11 @@ public class Board
         {
             Game.P1.Wins += 1;
         }
+        else
+        {
+            Game.P2.Wins += 1;
+        }
+        Winner=winner;
         GameRunning = false;
     }
 }

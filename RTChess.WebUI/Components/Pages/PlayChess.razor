@@ -16,7 +16,7 @@
                     string background = isOdd ? ("background-color: rgba(0,0,0,0.5);") : ("background-color: rgba(0,0,0,0.0);");
                     @if (piece != null && !(piece is MoveTile && piece.Color!=true))
                     {
-                        CoolDownColor = (200-piece.GetCooldownPercent() * 255);
+                        CoolDownColor = (255-piece.GetCooldownPercent() * 200);
                     }
                     if (CoolDownColor > 55)//55 to make the cooldown expiring more obvious
                     {
@@ -39,7 +39,7 @@
     if (!Board.GameRunning)
     {
         <label>Game Over!</label>
-        string winner = Board.Winner ? "White Wins!" : "Black Wins!";
+        string winner = Board.Winner ? "Black Wins!" : "White Wins!";
         <p></p>
         <label>@winner</label>
 

@@ -1,7 +1,7 @@
 namespace RTChess.Logic;
 using System;
 using System.Threading.Tasks;
-public class CheckersMoveTile : IPiece
+public class CheckersMoveTile : IPiece // REQ#2.1.2
 {
     public int Offset { get; set; }
     public bool Row { get; set; }

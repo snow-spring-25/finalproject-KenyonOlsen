@@ -1,6 +1,6 @@
 namespace RTChess.Logic;
 
-public class Checker : IPiece
+public class Checker : IPiece // REQ#2.1.2
 {
     int preDisplay = (int)'●';
     public Checker(bool color, int Position) : base(color, Position)

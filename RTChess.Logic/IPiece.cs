@@ -1,6 +1,6 @@
 namespace RTChess.Logic;
 //REQ#2.2.1
-public class IPiece
+public class IPiece //REQ#2.2.1
 {
     public bool Color { get; set; }
     public char Display { get; set; }
